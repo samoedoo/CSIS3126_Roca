@@ -7,13 +7,15 @@ import LoginPage from "./components/LoginPage";
 import RegisterPage from "./components/RegisterPage";
 
 const App = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
 
   return (
     <Router>
       <div style={{ display: "flex", minHeight: "100vh" }}>
         {/* Sidebar - only visible on Dashboard */}
         {isLoggedIn && window.location.pathname === "/dashboard" && <Sidebar />}
+        {isLoggedIn && window.location.pathname === "/courses" && <Sidebar />}
+        {isLoggedIn && window.location.pathname === "/timer" && <Sidebar />}
         
         <div style={{ marginLeft: isLoggedIn && window.location.pathname === "/dashboard" ? "250px" : "0", flex: 1, padding: "20px" }}>
           <Routes>

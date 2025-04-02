@@ -1,13 +1,14 @@
 // Dashboard.js
 import React from "react";
 import MyCalendar from "./Calendar";  // Import the Calendar component
+import Sidebar from "./Sidebar";
 
 const Dashboard = () => {
   return (
     <div style={{ display: "flex", minHeight: "100vh" }}>
       {/* Main Content */}
-      <div style={{ marginLeft: "250px", padding: "20px", flex: 1 }}>
-        <h1>Welcome to the Dashboard!</h1>
+      <div style={{ marginLeft: "10px", padding: "20px", flex: 1 }}>
+        <h1>Welcome to your study planner!</h1>
         <p>This is the page after logging in.</p>
 
         {/* Calendar */}

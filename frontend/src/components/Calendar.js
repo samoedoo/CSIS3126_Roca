@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import Calendar from "react-calendar";  // Import the react-calendar component
 import "react-calendar/dist/Calendar.css"; // Import the default calendar styles
+import "./calender.css";
 
 const MyCalendar = () => {
   const [date, setDate] = useState(new Date()); // Track the currently selected date
@@ -31,6 +32,9 @@ const calendarContainerStyle = {
   maxWidth: "600px", // Optional: Max width for better responsiveness
   margin: "0 auto", // Center the calendar horizontally
   boxShadow: "0 2px 10px rgba(0, 0, 0, 0.1)", // Add a subtle shadow for depth
+  display: "flex",
+  flexDirection:"column",
+  alignItems:"center"
 };
 
 export default MyCalendar;

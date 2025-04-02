@@ -1,5 +1,6 @@
 // Timer.js
 import React, { useState, useEffect } from "react";
+import Sidebar from "./Sidebar";
 
 const Timer = () => {
   const [isPomodoro, setIsPomodoro] = useState(true);  // True for Pomodoro, False for Regular
@@ -58,13 +59,13 @@ const Timer = () => {
       <div style={timerDisplayStyle}>{formatTime(time)}</div>
 
       <div style={buttonContainerStyle}>
-        <button onClick={toggleTimer} style={buttonStyle}>
+        <button className="action-button" onClick={toggleTimer} style={buttonStyle}>
           {isRunning ? "Pause" : "Start"}
         </button>
-        <button onClick={resetTimer} style={buttonStyle}>
+        <button className="action-button" onClick={resetTimer} style={buttonStyle}>
           Reset
         </button>
-        <button onClick={switchTimer} style={buttonStyle}>
+        <button className="action-button" onClick={switchTimer} style={buttonStyle}>
           Switch to {isPomodoro ? "Regular" : "Pomodoro"} Timer
         </button>
       </div>

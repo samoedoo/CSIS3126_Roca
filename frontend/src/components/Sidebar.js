@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import "./sidebar.css"
 
 const Sidebar = () => {
   return (
@@ -22,47 +23,17 @@ const Sidebar = () => {
       
       <div style={{ display: "flex", flexDirection: "column", gap: "15px" }}>
         <Link to="/dashboard">
-          <button
-            style={{
-              backgroundColor: "#006400", // Green background
-              color: "white",
-              border: "2px solid #003d00", // Darker green border
-              padding: "10px 20px",
-              fontSize: "16px",
-              borderRadius: "5px",
-              cursor: "pointer",
-            }}
-          >
+          <button className="sidebar-button">
             Dashboard
           </button>
         </Link>
         <Link to="/courses"> {/* Change the link to '/courses' */}
-          <button
-            style={{
-              backgroundColor: "#006400", // Green background
-              color: "white",
-              border: "2px solid #003d00", // Darker green border
-              padding: "10px 20px",
-              fontSize: "16px",
-              borderRadius: "5px",
-              cursor: "pointer",
-            }}
-          >
+          <button className="sidebar-button" >
             Courses {/* Update the button text */}
           </button>
         </Link>
         <Link to="/timer">
-          <button
-            style={{
-              backgroundColor: "#006400", // Green background
-              color: "white",
-              border: "2px solid #003d00", // Darker green border
-              padding: "10px 20px",
-              fontSize: "16px",
-              borderRadius: "5px",
-              cursor: "pointer",
-            }}
-          >
+          <button className="sidebar-button">
             Timer
           </button>
         </Link>
