@@ -1,0 +1,48 @@
+.sidebar-container{
+    width: 250px;
+        background-Color: #006400;
+        color: white;
+        padding: 20px;
+        position: fixed;
+        height: -webkit-fill-available;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between
+}
+
+.sidebar-button{
+    width: 120px;
+    background-color: #006400;
+    color:white;
+    border: 1px solid #003d00;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.sidebar-button:hover{
+    border: 1px solid white;
+    transition: 0.5s ease-in;
+}
+
+.logout{
+    width: 120px;
+    padding: 10px 0px;
+    text-align: center;
+    border-radius: 5px;
+    cursor: pointer;
+    border: 1px solid white;
+}
+.logout:hover{
+    border: 1px solid white;
+    background-color: #006400;
+    color:white;
+    transition: 0.5s ease-in;
+}
+
+.hideSidebar{
+    display: none;
+}
+.showSidebar{
+    display: flex;
+}

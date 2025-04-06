@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Sidebar from "./Sidebar";
 
-const Courses = () => {
+const Courses = (isLoggedIn, setIsLoggedIn) => {
   // State to store courses
   const [courses, setCourses] = useState([]);
   const [courseName, setCourseName] = useState(""); // To store the new course name
@@ -20,7 +20,10 @@ const Courses = () => {
   };
 
   return (
-    <div style={{ padding: "20px", backgroundColor: "#f4f4f4", borderRadius: "8px" }}>
+    <>
+     {isLoggedIn && window.location.pathname === "/courses" && <Sidebar />}
+    
+    <div style={{ padding: "20px", backgroundColor: "#f4f4f4", borderRadius: "8px", marginLeft:"300px" }}>
       <h2>Courses</h2>
 
       {/* Form to add a course */}
@@ -67,6 +70,7 @@ const Courses = () => {
         <p>No courses added yet.</p>
       )}
     </div>
+    </>
   );
 };
 

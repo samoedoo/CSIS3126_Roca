@@ -49,3 +49,8 @@ input {
 p {
   text-align: center;
 }
+.form_box{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

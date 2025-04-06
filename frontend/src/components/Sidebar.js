@@ -1,26 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "./sidebar.css"
+import "../style/sidebar.css"
 
 const Sidebar = () => {
   return (
-    <div
-      style={{
-        width: "250px", // Sidebar width
-        backgroundColor: "#006400", // Dark green background
-        color: "white",
-        padding: "20px",
-        position: "fixed", // Keep sidebar fixed on the screen
-        height: "100vh", // Full height of the viewport
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "space-between", // Space out the buttons
-      }}
+    <div className={` ${window.location.pathname === "/login"  || window.location.pathname === "/register" ? "hideSidebar":"showSidebar" } sidebar-container`}
     >
-      <div style={{ paddingBottom: "10px", textAlign: "center" }}>
-        <h3>Study Planner</h3>
-      </div>
-      
+      <div >
+        <h3 style={{ paddingBottom: "10px",  }}>Study Planner</h3>
       <div style={{ display: "flex", flexDirection: "column", gap: "15px" }}>
         <Link to="/dashboard">
           <button className="sidebar-button">
@@ -38,9 +25,15 @@ const Sidebar = () => {
           </button>
         </Link>
       </div>
+      </div>
       
-      <div style={{ marginTop: "auto" }}>
+      
+      <div >
         {/* Any footer or logout button could go here */}
+        <Link to="/login"> 
+        <button className="logout">Logout</button>
+        </Link>
+        
       </div>
     </div>
   );

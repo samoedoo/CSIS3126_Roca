@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import "../style/auth.css";
 
 const RegisterPage = () => {
   const [username, setUsername] = useState("");
@@ -35,16 +36,16 @@ const RegisterPage = () => {
     <div className="register-container">
       <h2>Register</h2>
       <form onSubmit={handleRegister}>
-        <div>
-          <label>Username</label>
+        <div className="form_box">
+          <label style={{marginRight:"10px"}}>Username</label>
           <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} required />
         </div>
-        <div>
-          <label>Password</label>
+        <div className="form_box">
+          <label style={{marginRight:"10px"}}>Password</label>
           <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
         </div>
-        <div>
-          <label>Confirm Password</label>
+        <div className="form_box">
+          <label style={{marginRight:"10px"}}>Confirm Password</label>
           <input
             type="password"
             value={confirmPassword}

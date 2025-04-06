@@ -1,8 +1,9 @@
 // Timer.js
 import React, { useState, useEffect } from "react";
 import Sidebar from "./Sidebar";
+import "../style/timer.css"
 
-const Timer = () => {
+const Timer = (isLoggedIn, setIsLoggedIn) => {
   const [isPomodoro, setIsPomodoro] = useState(true);  // True for Pomodoro, False for Regular
   const [time, setTime] = useState(isPomodoro ? 25 * 60 : 5 * 60);  // Default to Pomodoro (25 minutes)
   const [isRunning, setIsRunning] = useState(false);
@@ -54,7 +55,10 @@ const Timer = () => {
   };
 
   return (
-    <div style={timerContainerStyle}>
+    <>
+    {isLoggedIn && window.location.pathname === "/timer" && <Sidebar />}
+    <div className="timerContainerStyle"> 
+      <div className="inner_box">
       <h2>{isPomodoro ? "Pomodoro Timer" : "Regular Timer"}</h2>
       <div style={timerDisplayStyle}>{formatTime(time)}</div>
 
@@ -69,7 +73,9 @@ const Timer = () => {
           Switch to {isPomodoro ? "Regular" : "Pomodoro"} Timer
         </button>
       </div>
+      </div>
     </div>
+    </>
   );
 };
 
@@ -83,6 +89,7 @@ const timerContainerStyle = {
   margin: "0 auto",
   textAlign: "center",
   boxShadow: "0 2px 10px rgba(0, 0, 0, 0.1)",
+  marginLeft:"290px"
 };
 
 const timerDisplayStyle = {

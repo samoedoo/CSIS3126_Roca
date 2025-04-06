@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import Calendar from "react-calendar";  // Import the react-calendar component
 import "react-calendar/dist/Calendar.css"; // Import the default calendar styles
-import "./calender.css";
+import "../style/calendar.css";
 
 const MyCalendar = () => {
   const [date, setDate] = useState(new Date()); // Track the currently selected date

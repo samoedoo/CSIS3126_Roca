@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "./auth.css";
+import "../style/auth.css";
 
 const LoginPage = ({ setIsLoggedIn }) => {
   const [username, setUsername] = useState("");
@@ -35,12 +35,12 @@ const LoginPage = ({ setIsLoggedIn }) => {
     <div className="login-container">
       <h2>Login</h2>
       <form onSubmit={handleLogin}>
-        <div>
-          <label>Username</label>
+        <div className="form_box">
+          <label style={{marginRight:"10px"}}>Username</label>
           <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} required />
         </div>
-        <div>
-          <label>Password</label>
+        <div className="form_box">
+          <label style={{marginRight:"10px"}}>Password</label>
           <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
         </div>
         <button className="action-button" type="submit">Login</button>
