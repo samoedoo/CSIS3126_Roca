@@ -3,14 +3,14 @@ import React from "react";
 import MyCalendar from "./Calendar";  // Import the Calendar component
 import Sidebar from "./Sidebar";
 
-const Dashboard = (isLoggedIn, setIsLoggedIn) => {
+const Dashboard = ({ isLoggedIn, setIsLoggedIn }) => {
   return (
     <div style={{ display: "flex", minHeight: "100vh", justifyContent: "space-between", width:"100%" }}>
       {isLoggedIn && window.location.pathname === "/dashboard" && <Sidebar />}
       {/* Main Content */}
-      <div style={{ marginLeft: "290px", padding: "20px" , margin:"auto"}}>
+      <div style={{ marginLeft: "560px", padding: "20px" , margin:"auto" }}>
         <h1>Welcome to your study planner!</h1>
-        <p>This is the page after logging in.</p>
+        <p>Lets not forget anything!</p>
 
         {/* Calendar */}
         <div style={calendarContainerStyle}>

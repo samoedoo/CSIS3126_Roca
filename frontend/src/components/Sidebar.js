@@ -8,7 +8,7 @@ const Sidebar = () => {
     >
       <div >
         <h3 style={{ paddingBottom: "10px",  }}>Study Planner</h3>
-      <div style={{ display: "flex", flexDirection: "column", gap: "15px" }}>
+      <div style={{ display: "flex", flexDirection: "column", gap: "45px" }}>
         <Link to="/dashboard">
           <button className="sidebar-button">
             Dashboard

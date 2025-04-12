@@ -5,7 +5,7 @@ import Dashboard from "./components/Dashboard"; // Dashboard component
 import Timer from "./components/Timer";  // Timer page
 import LoginPage from "./components/LoginPage";
 import RegisterPage from "./components/RegisterPage";
-import Courses from "./components/Courses";
+import Courses from "./components/Courses"; // Make sure this file exists
 
 const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(true);
@@ -13,14 +13,14 @@ const App = () => {
   return (
     <Router>
       <div style={{ display: "flex", minHeight: "100vh" }}>
-        {/* Sidebar - only visible on Dashboard */}
-          <Routes>
-            <Route path="/" element={<LoginPage setIsLoggedIn={setIsLoggedIn} />} />
-            <Route path="/login" element={<LoginPage setIsLoggedIn={setIsLoggedIn} />} />
-            <Route path="/register" element={<RegisterPage isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}/>} />
-            <Route path="/dashboard" element={<Dashboard isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />} />
-            <Route path="/timer" element={<Timer isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}/>} />
-          </Routes>
+        <Routes>
+          <Route path="/" element={<LoginPage setIsLoggedIn={setIsLoggedIn} />} />
+          <Route path="/login" element={<LoginPage setIsLoggedIn={setIsLoggedIn} />} />
+          <Route path="/register" element={<RegisterPage isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />} />
+          <Route path="/dashboard" element={<Dashboard isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />} />
+          <Route path="/timer" element={<Timer isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />} />
+          <Route path="/courses" element={<Courses isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />} />
+        </Routes>
       </div>
     </Router>
   );
