@@ -81,7 +81,7 @@ def register():
 
     return jsonify({"message": "Registration successful!"}), 201  # Respond with success
 
-# Dashboard route (after login) - not needed for now for API, but you can add it if you want to display user data
+# Dashboard route (after login)
 @app.route('/dashboard')
 def dashboard():
     return 'Welcome to your dashboard!'
