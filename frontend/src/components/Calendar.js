@@ -1,6 +1,6 @@
 // Calendar.js
-import React, { useState } from "react";
-import { Calendar as BigCalendar, dateFnsLocalizer } from "react-big-calendar";
+import React, { useState, useEffect } from "react";
+import { Calendar as BigCalendar, dateFnsLocalizer, Views } from "react-big-calendar";
 import format from "date-fns/format";
 import parse from "date-fns/parse";
 import startOfWeek from "date-fns/startOfWeek";
@@ -21,15 +21,28 @@ const localizer = dateFnsLocalizer({
 });
 
 const MyCalendar = () => {
-  const [events, setEvents] = useState([
-    {
-      title: "Meeting with Team",
-      start: new Date(),
-      end: new Date(),
-    },
-  ]);
+  const [date, setDate] = useState(new Date());
+  const [view, setView] = useState(Views.MONTH);
+  const [events, setEvents] = useState([]);
 
-  // Handle clicking on a date
+  // ✅ Load events from localStorage and convert date strings to Date objects
+  useEffect(() => {
+    const storedEvents = localStorage.getItem("calendarEvents");
+    if (storedEvents) {
+      const parsedEvents = JSON.parse(storedEvents).map((event) => ({
+        ...event,
+        start: new Date(event.start),
+        end: new Date(event.end),
+      }));
+      setEvents(parsedEvents);
+    }
+  }, []);
+
+  // ✅ Save events to localStorage when they change
+  useEffect(() => {
+    localStorage.setItem("calendarEvents", JSON.stringify(events));
+  }, [events]);
+
   const handleSelectSlot = ({ start, end }) => {
     const title = window.prompt("Enter event title:");
     if (title) {
@@ -37,9 +50,21 @@ const MyCalendar = () => {
     }
   };
 
-  // Optional: handle clicking on an existing event
-  const handleSelectEvent = (event) => {
-    alert(`Event: ${event.title}`);
+  const handleSelectEvent = (eventToEdit) => {
+    const action = window.prompt(
+      `Edit the title or type DELETE to remove the event:`,
+      eventToEdit.title
+    );
+    if (action === null) return; // Cancelled
+    if (action.toUpperCase() === "DELETE") {
+      setEvents(events.filter((e) => e !== eventToEdit));
+    } else {
+      setEvents(
+        events.map((e) =>
+          e === eventToEdit ? { ...e, title: action } : e
+        )
+      );
+    }
   };
 
   return (
@@ -54,6 +79,10 @@ const MyCalendar = () => {
         onSelectSlot={handleSelectSlot}
         onSelectEvent={handleSelectEvent}
         style={calendarStyle}
+        date={date}
+        view={view}
+        onView={(v) => setView(v)}
+        onNavigate={(date) => setDate(new Date(date))}
       />
     </div>
   );
