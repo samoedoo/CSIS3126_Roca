@@ -8,7 +8,7 @@ const Dashboard = ({ isLoggedIn, setIsLoggedIn }) => {
     <div style={{ display: "flex", minHeight: "100vh", justifyContent: "space-between", width:"100%" }}>
       {isLoggedIn && window.location.pathname === "/dashboard" && <Sidebar />}
       {/* Main Content */}
-      <div style={{ marginLeft: "560px", padding: "20px" , margin:"auto" }}>
+      <div style={{ marginLeft: "560px", padding: "40px" , margin:"auto" }}>
         <h1>Welcome to your study planner!</h1>
         <p>Lets not forget anything!</p>
 

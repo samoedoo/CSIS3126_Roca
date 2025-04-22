@@ -1,1 +1,51 @@
-
+Problem Diagnosis
+Effective time management is a challenge for many students, especially when juggling multiple subjects, deadlines, and extracurricular activities. Existing tools such as generic calendar apps or physical planners often fail to provide personalized features tailored to students' unique study needs. Common issues include:
+•	Lack of adaptive scheduling for fluctuating workloads.
+•	Absence of goal setting and progress tracking functionalities.
+•	Poor integration of study techniques like the Pomodoro method.
+Studies revealed frustration with tools that lack flexibility or require extensive manual setup. A common request was for a user-friendly solution that could dynamically adjust to changing schedules and priorities.
+Proposed Solution
+I propose to develop a Study Planner Application that addresses these challenges by offering:
+•	Customizable Schedules: Automatically adjust based on the user's study habits, deadlines, and availability. (Scrapped)
+•	Goal Tracking: Set and monitor academic goals with visual progress indicators. (Could not get this to work properly and was scrapped)
+•	Integrated Study Techniques: Incorporate popular methods like the Pomodoro timer.
+•	Cross-Device Synchronization: Accessible on desktop and mobile devices. (Only on desktop)
+•	Reminders and Notifications: Ensure tasks are not overlooked. (Was not able to integrate this on time)
+Benefits
+The application will provide the following benefits to users:
+•	Enhanced productivity through optimized scheduling.
+•	Clear visibility of progress, fostering motivation.
+•	Stress reduction by managing time effectively.
+Example Scenarios
+1.	Student A sets a deadline for an essay and allocates study sessions.
+2.	Student B uses the integrated Pomodoro timer to focus on studying, with automated breaks to avoid burnout.
+User Capabilities:
+•	Schedule and organize study sessions.
+•	Track goals and monitor progress.
+•	Adjust plans dynamically based on priorities.
+•	Utilize built-in timers and productivity tools.
+________________________________________
+Plan of Work and Product Ownership
+Implementation Plan
+1.	Phase 1: Research and Requirements Gathering (1 week)
+o	Conduct additional user interviews.
+o	Finalize feature requirements.
+2.	Phase 2: Design (1 week)
+o	Create wireframes and mockups.
+o	Plan database schema and system architecture.
+3.	Phase 3: Development (4 weeks)
+o	Week 1: Set up the project environment and develop the user authentication module.
+o	Week 2: Implement scheduling and goal-tracking features.
+o	Week 3: Integrate study techniques (e.g., Pomodoro timer) and notifications.
+o	Week 4: Test and debug the application.
+4.	Phase 4: Deployment and Feedback (1 week)
+o	Deploy the application.
+o	Collect feedback from initial users.
+Programming Languages and Technologies
+•	Backend: Python with Flask or FastAPI.
+•	Frontend: HTML or CSS.
+•	Database: PostgreSQL for storing user data. (Ended up using MySQL)
+Success Metrics
+•	Adoption Rate: Number of downloads or active users.
+•	User Feedback: Positive reviews and suggestions.
+•	Feature Utilization: Frequency of goal-setting and study technique usage.

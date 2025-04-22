@@ -1,19 +1,20 @@
 import React, { useState, useEffect } from "react";
+import axios from "axios";
 import Sidebar from "./Sidebar";
 
-const Courses = ({ isLoggedIn, setIsLoggedIn }) => {
-  // Load courses from localStorage on initial render
-  const [courses, setCourses] = useState(() => {
-    const stored = localStorage.getItem("courses");
-    return stored ? JSON.parse(stored) : [];
-  });
+// Set default base URL for Axios
+axios.defaults.baseURL = "http://127.0.0.1:5000";
 
+const Courses = ({ isLoggedIn, setIsLoggedIn }) => {
+  const [courses, setCourses] = useState([]);
   const [courseName, setCourseName] = useState("");
 
   useEffect(() => {
-    // Save courses to localStorage whenever they change
-    localStorage.setItem("courses", JSON.stringify(courses));
-  }, [courses]);
+    axios
+      .get("/api/courses?user_id=1") // Replace 1 with actual user ID when login is integrated
+      .then((response) => setCourses(response.data))
+      .catch((error) => console.error("Error fetching courses:", error));
+  }, []);
 
   const handleCourseNameChange = (e) => {
     setCourseName(e.target.value);
@@ -21,18 +22,22 @@ const Courses = ({ isLoggedIn, setIsLoggedIn }) => {
 
   const handleAddCourse = () => {
     if (courseName.trim() !== "") {
-      setCourses([...courses, courseName]);
-      setCourseName("");
+      const newCourse = { name: courseName, user_id: 1 }; // Replace with actual user ID
+      axios
+        .post("/api/courses", newCourse)
+        .then((res) => {
+          setCourses([...courses, newCourse]);
+          setCourseName("");
+        })
+        .catch((error) => console.error("Error adding course:", error));
     }
   };
 
   return (
     <>
       {isLoggedIn && window.location.pathname === "/courses" && <Sidebar />}
-
       <div style={{ padding: "20px", backgroundColor: "#f4f4f4", borderRadius: "8px", marginLeft: "300px" }}>
         <h2>Courses</h2>
-
         <div style={{ marginBottom: "20px" }}>
           <input
             type="text"
@@ -62,12 +67,11 @@ const Courses = ({ isLoggedIn, setIsLoggedIn }) => {
             Add Course
           </button>
         </div>
-
         {courses.length > 0 ? (
           <ul style={{ listStyleType: "none", padding: 0 }}>
             {courses.map((course, index) => (
               <li key={index} style={{ padding: "10px", borderBottom: "1px solid #ddd" }}>
-                {course}
+                {course.name || course}
               </li>
             ))}
           </ul>
