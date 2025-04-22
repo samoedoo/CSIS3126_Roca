@@ -1,2 +1,21 @@
 # CSIS3126_Roca
 Project Design
+
+
+FOR BACK END:
+
+Flask
+mysql-connector-python
+python-dotenv
+flask-cors
+
+Activate the virtual environment and then do #flask run to run the API
+
+
+FOR FRONT END:
+
+Node.js
+React
+
+Do #npm install and npm install axios
+To run the project do #npm start
